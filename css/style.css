@@ -12,39 +12,16 @@
   padding: 0;
   box-sizing: border-box;
 }
-html{
+
+html {
   scroll-behavior: smooth;
 }
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  
-}
-.education-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.education-card {
-  background: var(--light);
-  padding: 20px;
-  border-radius: var(--radius);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
-  text-align: left;
-}
-
-.education-card h3 {
-  color: var(--primary);
-  margin-bottom: 10px;
-}
-
-.education-card p {
-  margin: 5px 0;
-  color: var(--text);
 }
 
 .container {
@@ -71,6 +48,7 @@ header {
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  padding: 0 10px; /* Added space around logo text */
 }
 
 .logo span {
@@ -101,6 +79,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 60px 0;
+  gap: 40px;
 }
 
 .hero-text {
@@ -116,14 +95,19 @@ header {
   color: var(--primary);
 }
 
+.hero-text p {
+  margin-bottom: 20px;
+}
+
 .hero-img img {
   width: 250px;
   height: 250px;
   object-fit: cover;
-  border-radius: 50%; /* This makes it round */
-  border: 3px solid #ff702a; /* Optional: border color */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: shadow */
+  border-radius: 50%;
+  border: 3px solid #ff702a;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
 .section {
   padding: 60px 0;
   text-align: center;
@@ -137,11 +121,37 @@ header {
   margin-top: 30px;
 }
 
-.skill, .project-card {
+.skill,
+.project-card {
   background: var(--light);
   padding: 20px;
   border-radius: var(--radius);
-  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.education-card {
+  background: var(--light);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  text-align: left;
+}
+
+.education-card h3 {
+  color: var(--primary);
+  margin-bottom: 10px;
+}
+
+.education-card p {
+  margin: 5px 0;
+  color: var(--text);
 }
 
 .btn {
@@ -174,7 +184,8 @@ form {
   gap: 15px;
 }
 
-form input, form textarea {
+form input,
+form textarea {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: var(--radius);
@@ -206,22 +217,24 @@ footer {
   transform: scale(1.2);
 }
 
-/* Responsive */
+/* =======================
+   Responsive — phones & small tablets
+   ======================= */
 @media (max-width: 768px) {
-  /* Hide nav links initially, show on toggle */
   .nav-links {
     display: none;
     flex-direction: column;
     background: var(--light);
     position: absolute;
-    right: 20px;
+    right: 16px;
     top: 60px;
-    width: 220px;
-    padding: 15px;
+    width: calc(100% - 32px);
+    max-width: 280px;
+    padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
     z-index: 100;
-    gap: 10px;
+    gap: 18px;
     transition: all 0.3s ease;
   }
 
@@ -229,43 +242,65 @@ footer {
     display: flex;
   }
 
-  /* Show hamburger icon */
   .menu-toggle {
     display: block;
     cursor: pointer;
-    font-size: 24px;
-    color: var(--primary); /* customize */
+    font-size: 28px;
+    color: var(--primary);
+    padding: 8px;
   }
 
-  /* Stack hero content */
   .hero {
     flex-direction: column;
     text-align: center;
-    padding: 40px 20px;
-    gap: 30px;
+    padding: 50px 16px;
+    gap: 40px;
   }
 
-  /* Ensure image adjusts */
-  .hero-img {
+  .hero-text h1 {
+    font-size: 24px;
+    line-height: 1.3;
+    margin-bottom: 12px;
+  }
+
+  .hero-text p {
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 24px;
+  }
+
+  .hero-img img {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    height: auto;
     margin: 0 auto;
-    margin-top: 20px;
   }
 
-  /* Adjust headings and text sizes */
-  .hero h1 {
-    font-size: 28px;
-  }
-
-  .hero p {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-
-  /* Optional: Improve button layout */
   .hero .btn {
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 12px 28px;
+    font-size: 15px;
+    border-radius: 8px;
+  }
+
+  .education-grid,
+  .skills-grid,
+  .project-grid {
+    gap: 16px;
+    margin-top: 24px;
+    padding: 0 16px;
+  }
+
+  .education-card,
+  .skill,
+  .project-card {
+    padding: 18px;
+  }
+
+  form {
+    padding: 0 16px;
+  }
+
+  .logo {
+    padding: 0 16px; /* More side space on mobile */
   }
 }
